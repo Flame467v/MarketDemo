@@ -1,0 +1,31 @@
+<h1>Listings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Image</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @my_listings.each do |my_listing| %>
+      <tr>
+        <td><%= image_tag my_listing.image.url(:medium) %></td>
+        <td><%= my_listing.name %></td>
+        <td><%= my_listing.description %></td>
+        <td><%= my_listing.price %></td>
+        <td><%= link_to 'Show', my_listing, class:"btn btn-link"  %></td>
+        <td><%= link_to 'Edit', edit_my_listing_path(my_listing), class:"btn btn-link"  %></td>
+        <td><%= link_to 'Destroy', my_listing, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-link"  %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New My listing', new_my_listing_path %>
